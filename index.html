@@ -133,6 +133,21 @@
             margin-bottom: 0.5rem;
         }
 
+        .app-logo {
+            width: 48px;
+            height: 48px;
+            border-radius: 10px;
+            object-fit: contain;
+            box-shadow: 0 0 15px rgba(138, 43, 226, 0.3);
+        }
+
+        .app-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 0.8rem;
+        }
+
         .app-info p {
             color: var(--text-muted);
             font-size: 1rem;
@@ -211,7 +226,10 @@
         <div class="apps-grid">
             <a href="focusdeck/index.html" class="app-card">
                 <div class="app-info">
-                    <h3>FocusDeck</h3>
+                    <div class="app-header">
+                        <img src="focusdeck/assets/logo.png" class="app-logo" alt="FocusDeck Logo">
+                        <h3>FocusDeck</h3>
+                    </div>
                     <p>High-speed batch photo renaming, long-edge resizing, and premium WebP/JPEG compression. Processing happens 100% locally.</p>
                     <div class="app-meta">
                         <span class="tag">Photography</span>

@@ -71,16 +71,11 @@
             cursor: pointer;
         }
 
-        .logo-icon {
+        .logo-img {
             width: 36px;
             height: 36px;
             border-radius: 8px;
-            background: linear-gradient(135deg, var(--color-accent), var(--color-cyan));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-family: var(--font-title);
+            object-fit: contain;
             box-shadow: 0 0 15px rgba(138, 43, 226, 0.4);
         }
 
@@ -346,7 +341,7 @@
     <header>
         <div class="nav-container">
             <a onclick="showSection('home')" class="logo-area">
-                <div class="logo-icon">FD</div>
+                <img src="assets/logo.png" class="logo-img" alt="FocusDeck Logo">
                 <div class="logo-text">Focus<span>Deck</span></div>
             </a>
             <nav>
