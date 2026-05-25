@@ -55,18 +55,13 @@
             margin-bottom: 4rem;
         }
 
-        .logo-icon {
-            width: 64px;
-            height: 64px;
-            border-radius: 16px;
-            background: linear-gradient(135deg, var(--color-accent), var(--color-cyan));
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 800;
-            font-size: 1.8rem;
-            font-family: var(--font-title);
-            box-shadow: 0 0 25px rgba(138, 43, 226, 0.4);
+        .logo-img-main {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 0 25px rgba(0, 240, 255, 0.2);
+            border: 2px solid var(--border-muted);
             margin-bottom: 1.5rem;
         }
 
@@ -217,7 +212,7 @@
 
     <div class="container">
         <div class="header">
-            <div class="logo-icon">HL</div>
+            <img src="assets/logo.png" class="logo-img-main" alt="Hamster Lab Logo">
             <h1>Hamster <span>Lab</span></h1>
             <p class="subtitle">High-performance utilities, developer tools, and creative apps built for maximum speed and absolute privacy.</p>
         </div>
