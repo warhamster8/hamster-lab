@@ -3,243 +3,174 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hamster Lab // Creative Software Suite</title>
-    <meta name="description" content="Welcome to Hamster Lab. High-performance apps and creative utilities built for photographers, developer tools, and creators.">
+    <title>Hamsterlab | Premium Digital Tools</title>
+    <meta name="description" content="Showcase of Hamsterlab's premium digital tools including Remarkable templates, LiveMark, and FocusDeck.">
+    <link rel="stylesheet" href="style.css">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg-base: #0b0f19;
-            --bg-panel: #121826;
-            --bg-inner: #1a2336;
-            --color-accent: #8a2be2;
-            --color-accent-hover: #9d4edd;
-            --color-cyan: #00f0ff;
-            --text-primary: #ffffff;
-            --text-muted: #8fa0c4;
-            --border-muted: #24314c;
-            --font-main: 'Space Grotesk', sans-serif;
-            --font-title: 'Outfit', sans-serif;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: var(--font-main);
-            background-color: var(--bg-base);
-            color: var(--text-primary);
-            line-height: 1.6;
-            overflow-x: hidden;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 6rem 2rem 4rem;
-            width: 100%;
-            flex: 1;
-        }
-
-        /* Logo and Header */
-        .header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .logo-img-main {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            object-fit: cover;
-            box-shadow: 0 0 25px rgba(0, 240, 255, 0.2);
-            border: 2px solid var(--border-muted);
-            margin-bottom: 1.5rem;
-        }
-
-        h1 {
-            font-family: var(--font-title);
-            font-size: 3rem;
-            font-weight: 800;
-            letter-spacing: -1px;
-            margin-bottom: 0.5rem;
-        }
-
-        h1 span {
-            background: linear-gradient(135deg, var(--color-cyan), var(--color-accent));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .subtitle {
-            color: var(--text-muted);
-            font-size: 1.2rem;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        /* Apps Grid */
-        .apps-title {
-            font-family: var(--font-title);
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-            border-bottom: 1px solid var(--border-muted);
-            padding-bottom: 0.5rem;
-        }
-
-        .apps-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 2rem;
-            margin-bottom: 4rem;
-        }
-
-        .app-card {
-            background-color: var(--bg-panel);
-            border: 1px solid var(--border-muted);
-            border-radius: 16px;
-            padding: 2.5rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 2rem;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            color: var(--text-primary);
-        }
-
-        .app-card:hover {
-            transform: translateY(-4px);
-            border-color: var(--color-cyan);
-            box-shadow: 0 10px 30px rgba(0, 240, 255, 0.08);
-        }
-
-        .app-info h3 {
-            font-family: var(--font-title);
-            font-size: 1.6rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .app-logo {
-            width: 48px;
-            height: 48px;
-            border-radius: 10px;
-            object-fit: contain;
-            box-shadow: 0 0 15px rgba(138, 43, 226, 0.3);
-        }
-
-        .app-header {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 0.8rem;
-        }
-
-        .app-info p {
-            color: var(--text-muted);
-            font-size: 1rem;
-            max-width: 500px;
-        }
-
-        .app-meta {
-            display: flex;
-            gap: 10px;
-            margin-top: 1rem;
-        }
-
-        .tag {
-            background-color: var(--bg-inner);
-            color: var(--color-cyan);
-            font-size: 0.8rem;
-            padding: 0.2rem 0.6rem;
-            border-radius: 4px;
-            font-family: var(--font-title);
-            font-weight: 600;
-        }
-
-        .btn-go {
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            background-color: var(--bg-inner);
-            border: 1px solid var(--border-muted);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            transition: all 0.2s ease;
-            color: var(--text-primary);
-        }
-
-        .app-card:hover .btn-go {
-            background-color: var(--color-cyan);
-            color: var(--bg-base);
-            border-color: var(--color-cyan);
-            transform: translateX(3px);
-        }
-
-        /* Footer */
-        footer {
-            border-top: 1px solid var(--border-muted);
-            padding: 2.5rem 2rem;
-            text-align: center;
-            color: var(--text-muted);
-            font-size: 0.9rem;
-        }
-
-        @media (max-width: 700px) {
-            .app-card {
-                flex-direction: column;
-                align-items: flex-start;
-                padding: 2rem;
-            }
-
-            .btn-go {
-                align-self: flex-end;
-            }
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+    <!-- Background Animated Shapes -->
+    <div class="bg-shape shape-1"></div>
+    <div class="bg-shape shape-2"></div>
+    <div class="bg-shape shape-3"></div>
 
-    <div class="container">
-        <div class="header">
-            <img src="assets/logo.png" class="logo-img-main" alt="Hamster Lab Logo">
-            <h1>Hamster <span>Lab</span></h1>
-            <p class="subtitle">High-performance utilities, developer tools, and creative apps built for maximum speed and absolute privacy.</p>
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <i class="fa-solid fa-flask"></i> Hamsterlab
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#remarkable">Remarkable</a></li>
+                    <li><a href="#software">Software</a></li>
+                </ul>
+            </nav>
         </div>
+    </header>
 
-        <h2 class="apps-title">Our Suite</h2>
-        <div class="apps-grid">
-            <a href="focusdeck/index.html" class="app-card">
-                <div class="app-info">
-                    <div class="app-header">
-                        <img src="focusdeck/assets/logo.png" class="app-logo" alt="FocusDeck Logo">
-                        <h3>FocusDeck</h3>
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="container hero-content">
+                <h1 class="fade-in">Crafting <span>Digital</span> Excellence</h1>
+                <p class="fade-in delay-1">Explore our suite of premium tools designed to enhance productivity, creativity, and organization.</p>
+                <div class="cta-buttons fade-in delay-2">
+                    <a href="#remarkable" class="btn btn-primary">Explore Remarkable</a>
+                    <a href="#software" class="btn btn-secondary">Discover Software</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Remarkable Section -->
+        <section id="remarkable" class="section">
+            <div class="container">
+                <div class="section-header fade-in-scroll">
+                    <h2>Remarkable Paper Pro</h2>
+                    <p>Premium templates perfectly optimized for the 3:4 aspect ratio.</p>
+                </div>
+                
+                <div class="grid cards-grid">
+                    <!-- Template 1 -->
+                    <div class="card glass fade-in-scroll">
+                        <img src="assets/todo_preview.png" class="card-img" alt="To-Do List Preview">
+                        <div class="card-icon"><i class="fa-solid fa-list-check"></i></div>
+                        <h3>To-Do List</h3>
+                        <p>Daily, weekly, and monthly planners to keep you on track and focused.</p>
+                        <a href="https://github.com/warhamster8/Remarkable" target="_blank" class="card-link">View Details <i class="fa-solid fa-arrow-right"></i></a>
                     </div>
-                    <p>High-speed batch photo renaming, long-edge resizing, and premium WebP/JPEG compression. Processing happens 100% locally.</p>
-                    <div class="app-meta">
-                        <span class="tag">Photography</span>
-                        <span class="tag">Windows App</span>
-                        <span class="tag">Open Source</span>
+                    <!-- Template 2 -->
+                    <div class="card glass fade-in-scroll">
+                        <img src="assets/recipe_preview.png" class="card-img" alt="Ricettario Preview">
+                        <div class="card-icon"><i class="fa-solid fa-utensils"></i></div>
+                        <h3>Ricettario</h3>
+                        <p>A beautifully linked recipe book with 50 pages for your culinary creations.</p>
+                        <a href="https://github.com/warhamster8/Remarkable" target="_blank" class="card-link">View Details <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                    <!-- Template 3 -->
+                    <div class="card glass fade-in-scroll">
+                        <img src="assets/calendar_preview.png" class="card-img" alt="Calendar Preview">
+                        <div class="card-icon"><i class="fa-regular fa-calendar-days"></i></div>
+                        <h3>Calendar</h3>
+                        <p>Fully hyperlinked 2026/2027 calendar for effortless monthly and daily navigation.</p>
+                        <a href="https://github.com/warhamster8/Remarkable" target="_blank" class="card-link">View Details <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                    <!-- Template 4 -->
+                    <div class="card glass fade-in-scroll">
+                        <img src="assets/meeting_preview.png" class="card-img" alt="Meeting Notes Preview">
+                        <div class="card-icon"><i class="fa-solid fa-users-viewfinder"></i></div>
+                        <h3>Meeting Notes</h3>
+                        <p>Structured layouts to capture key takeaways and action items during meetings.</p>
+                        <a href="https://github.com/warhamster8/Remarkable" target="_blank" class="card-link">View Details <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                    <!-- Template 5 -->
+                    <div class="card glass fade-in-scroll">
+                        <img src="assets/spartiti_preview.png" class="card-img" alt="Spartiti Musicali Preview">
+                        <div class="card-icon"><i class="fa-solid fa-music"></i></div>
+                        <h3>Spartiti Musicali</h3>
+                        <p>Pristine music sheets for composing and practicing.</p>
+                        <a href="https://github.com/warhamster8/Remarkable" target="_blank" class="card-link">View Details <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                    <!-- Template 6 -->
+                    <div class="card glass fade-in-scroll">
+                        <img src="assets/notes_preview.png" class="card-img" alt="Notes Preview">
+                        <div class="card-icon"><i class="fa-solid fa-pen-nib"></i></div>
+                        <h3>Notes</h3>
+                        <p>Versatile free-form and lined templates for every thought.</p>
+                        <a href="https://github.com/warhamster8/Remarkable" target="_blank" class="card-link">View Details <i class="fa-solid fa-arrow-right"></i></a>
                     </div>
                 </div>
-                <div class="btn-go">→</div>
-            </a>
-        </div>
-    </div>
+            </div>
+        </section>
+
+        <!-- Software Section -->
+        <section id="software" class="section bg-alt">
+            <div class="container">
+                <div class="section-header fade-in-scroll">
+                    <h2>Software Applications</h2>
+                    <p>Powerful desktop tools for enhanced workflows.</p>
+                </div>
+                
+                <div class="feature-grid">
+                    <!-- LiveMark -->
+                    <div class="feature-item glass fade-in-scroll">
+                        <div class="feature-image">
+                            <img src="assets/LiveMark_Logo.jpg" alt="LiveMark Logo" id="livemark-img">
+                        </div>
+                        <div class="feature-content">
+                            <h3>LiveMark</h3>
+                            <div class="badge">Windows App</div>
+                            <p>An innovative application designed to streamline your live marking and presentation process. Manage your resources elegantly and efficiently.</p>
+                            <ul class="feature-list">
+                                <li><i class="fa-solid fa-check"></i> Built with Python</li>
+                                <li><i class="fa-solid fa-check"></i> SQLite Database integration</li>
+                                <li><i class="fa-solid fa-check"></i> Optimized UX</li>
+                            </ul>
+                            <a href="https://hamsterlab.gumroad.com/l/livemark" target="_blank" class="btn btn-outline">Get on Gumroad</a>
+                        </div>
+                    </div>
+
+                    <!-- FocusDeck -->
+                    <div class="feature-item glass fade-in-scroll reverse">
+                        <div class="feature-content">
+                            <h3>FocusDeck</h3>
+                            <div class="badge">Desktop App</div>
+                            <p>A stand-alone micro-utility designed for photographers. Batch rename and optimize your images and RAW files for the web with a minimal, modern GUI.</p>
+                            <ul class="feature-list">
+                                <li><i class="fa-solid fa-check"></i> Smart Mass Renaming</li>
+                                <li><i class="fa-solid fa-check"></i> WebP & JPEG Optimization</li>
+                                <li><i class="fa-solid fa-check"></i> Professional RAW Support</li>
+                            </ul>
+                            <a href="https://hamsterlab.gumroad.com/l/focusdeck" target="_blank" class="btn btn-outline">Get on Gumroad</a>
+                        </div>
+                        <div class="feature-image">
+                            <img src="assets/FocusDeck_Logo.png" alt="FocusDeck Logo" id="focusdeck-img" style="width: auto; height: 150px; object-fit: contain;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <footer>
-        &copy; 2026 Hamster Lab. All rights reserved.
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <i class="fa-solid fa-flask"></i> Hamsterlab
+            </div>
+            <div class="footer-links">
+                <a href="https://github.com/warhamster8" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
+            </div>
+            <div class="footer-copy">
+                &copy; <span id="year"></span> Hamsterlab. All rights reserved.
+            </div>
+        </div>
     </footer>
 
+    <script src="script.js"></script>
 </body>
 </html>
