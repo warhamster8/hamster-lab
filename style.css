@@ -80,9 +80,21 @@ body {
     text-decoration: none;
 }
 
-.logo-img {
-    height: 44px;
-    width: auto;
+.logo-text {
+    font-size: 1.4rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    color: var(--text-primary);
+    text-decoration: none;
+}
+
+.footer-brand-text {
+    font-size: 1.3rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    color: white;
+    display: block;
+    margin-bottom: 0.3rem;
 }
 
 nav ul {
