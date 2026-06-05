@@ -31,8 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
-                // Optional: Stop observing once it has become visible
-                // observer.unobserve(entry.target); 
+                observer.unobserve(entry.target); 
             }
         });
     }, observerOptions);
@@ -41,4 +40,9 @@ document.addEventListener('DOMContentLoaded', () => {
     animatedElements.forEach(el => {
         observer.observe(el);
     });
+
+    // 4. Lemon Squeezy SDK Overlay Setup
+    if (window.createLemonSqueezy) {
+        window.createLemonSqueezy();
+    }
 });
