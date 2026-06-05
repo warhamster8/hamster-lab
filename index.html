@@ -4,149 +4,144 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hamsterlab | Premium Digital Tools</title>
-    <meta name="description" content="Showcase of Hamsterlab's premium digital tools including Remarkable templates, LiveMark, and FocusDeck.">
-    <link rel="stylesheet" href="style.css?v=2">
-    <!-- Google Fonts: Playfair Display for Serif, Inter for Sans-Serif -->
+    <meta name="description" content="Hamsterlab creates premium digital tools: reMarkable PDF templates, LiveMark, and FocusDeck. Modern software for modern workflows.">
+    <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
-    <!-- Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Lemon Squeezy SDK Overlay -->
-    <script src="https://lemonsqueezy.com/assets/sdk/javascript/1.0.1/sdk.js" defer></script>
+    <script src="https://assets.lemonsqueezy.com/lemon.js" defer></script>
 </head>
 <body>
 
-    <header class="editorial-header">
-        <div class="container header-container">
+    <!-- Header -->
+    <header class="site-header" id="site-header">
+        <div class="container header-inner">
             <div class="logo">
                 <a href="#home">
-                    <img src="assets/logo.png" alt="Hamsterlab Logo" class="hamster-logo">
+                    <img src="assets/logo.png" alt="Hamsterlab" class="logo-img">
                 </a>
             </div>
             <nav>
                 <ul>
                     <li><a href="#home">Home</a></li>
-                    <li><a href="#remarkable">Paper & Ink</a></li>
+                    <li><a href="#templates">Templates</a></li>
                     <li><a href="#software">Software</a></li>
+                    <li><a href="https://hamsterlab.lemonsqueezy.com/checkout/buy/e487f15a-92a3-4b59-b4e9-636bfa8d25aa?embed=1" class="nav-cta lemonsqueezy-button">Get Bundle</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
     <main>
-        <!-- Hero Section -->
-        <section id="home" class="hero section-border-bottom">
-            <div class="container hero-container">
-                <div class="hero-content fade-in">
-                    <h4 class="kicker">Digital Craftsmanship</h4>
-                    <h1>The Digital <br><i>Stationery</i> Boutique.</h1>
-                    <p>Elevating productivity through meticulous design. Explore our collection of premium templates for reMarkable and our suite of professional software tools.</p>
-                    <div class="cta-buttons">
-                        <a href="#remarkable" class="btn btn-solid">Explore the Collection</a>
-                        <a href="#software" class="btn btn-outline">Discover Software</a>
-                    </div>
+        <!-- Hero -->
+        <section id="home" class="hero">
+            <div class="hero-bg-blob"></div>
+            <div class="hero-bg-blob-2"></div>
+            <div class="container">
+                <span class="hero-badge fade-in"><i class="fa-solid fa-bolt"></i> Digital Productivity Tools</span>
+                <h1 class="fade-in d1">Tools that make your<br><span class="highlight">workflow feel effortless.</span></h1>
+                <p class="hero-sub fade-in d2">Premium reMarkable templates and professional desktop software — crafted with obsessive attention to detail.</p>
+                <div class="hero-actions fade-in d3">
+                    <a href="#templates" class="btn btn-primary">Explore Templates <i class="fa-solid fa-arrow-right"></i></a>
+                    <a href="#software" class="btn btn-secondary">Discover Software</a>
                 </div>
             </div>
         </section>
 
-        <!-- Remarkable Section -->
-        <section id="remarkable" class="section section-border-bottom">
+        <!-- Templates Section -->
+        <section id="templates" class="section templates-section">
             <div class="container">
-                <div class="section-header fade-in-scroll">
-                    <h2 class="serif-title">Paper & Ink</h2>
-                    <p class="section-desc">Meticulously crafted templates for the reMarkable Paper Pro. Optimized for the 3:4 e-ink display.</p>
+                <div class="section-head fade-in-scroll">
+                    <span class="section-label">reMarkable Collection</span>
+                    <h2 class="section-title">Premium PDF Templates</h2>
+                    <p class="section-desc">Hand-crafted for the reMarkable Paper Pro. Hyperlinked, interactive, and optimized for the e-ink experience.</p>
                 </div>
-                
-                <div class="editorial-grid">
-                    <!-- Template 1 -->
-                    <article class="product-card fade-in-scroll">
-                        <figure class="product-image-wrapper">
-                            <img src="assets/Todo_Daily_Premium_mockup.png" alt="To-Do List Mockup" class="product-image">
-                        </figure>
-                        <div class="product-info">
-                            <span class="product-category">Productivity</span>
-                            <h3 class="product-title">The Daily Planner</h3>
-                            <p class="product-desc">Master your day with focused, minimalist layouts. Includes daily, weekly, and monthly tracking.</p>
-                            <a href="pdfs/Todo_Daily_Premium.pdf" target="_blank" class="read-more">View Preview <i class="fa-solid fa-arrow-right-long"></i></a>
-                        </div>
-                    </article>
 
-                    <!-- Template 2 -->
-                    <article class="product-card fade-in-scroll">
-                        <figure class="product-image-wrapper">
-                            <img src="assets/Ricettario_Premium_mockup.png" alt="Ricettario Mockup" class="product-image">
-                        </figure>
-                        <div class="product-info">
-                            <span class="product-category">Lifestyle</span>
-                            <h3 class="product-title">Il Ricettario</h3>
-                            <p class="product-desc">An elegant 50-page recipe journal. Perfectly hyperlinked for organizing your culinary creations.</p>
-                            <a href="pdfs/Ricettario_Premium.pdf" target="_blank" class="read-more">View Preview <i class="fa-solid fa-arrow-right-long"></i></a>
+                <div class="templates-grid">
+                    <!-- Card 1 -->
+                    <div class="template-card fade-in-scroll">
+                        <div class="template-img-wrap">
+                            <img src="assets/todo_preview.png" alt="To-Do List" class="template-img">
                         </div>
-                    </article>
-
-                    <!-- Template 3 -->
-                    <article class="product-card fade-in-scroll">
-                        <figure class="product-image-wrapper">
-                            <img src="assets/Calendario_2026_2027_Premium_mockup.png" alt="Calendar Mockup" class="product-image">
-                        </figure>
-                        <div class="product-info">
-                            <span class="product-category">Planning</span>
-                            <h3 class="product-title">The 2026/2027 Calendar</h3>
-                            <p class="product-desc">A fully interactive, hyperlinked calendar system. Seamless navigation between months and days.</p>
-                            <a href="pdfs/Calendario_2026_2027_Premium.pdf" target="_blank" class="read-more">View Preview <i class="fa-solid fa-arrow-right-long"></i></a>
+                        <div class="template-body">
+                            <span class="template-tag">Productivity</span>
+                            <h3 class="template-title">The Daily Planner</h3>
+                            <p class="template-desc">Master your day with focused, minimalist layouts. Daily, weekly and monthly tracking included.</p>
+                            <a href="pdfs/Todo_Daily_Premium.pdf" target="_blank" class="template-link">View Preview <i class="fa-solid fa-arrow-right"></i></a>
                         </div>
-                    </article>
-
-                    <!-- Template 4 -->
-                    <article class="product-card fade-in-scroll">
-                        <figure class="product-image-wrapper">
-                            <img src="assets/Meeting_Notes_Premium_mockup.png" alt="Meeting Notes Mockup" class="product-image">
-                        </figure>
-                        <div class="product-info">
-                            <span class="product-category">Professional</span>
-                            <h3 class="product-title">Meeting Notes</h3>
-                            <p class="product-desc">Structured layouts to capture key takeaways, attendees, and action items during your meetings.</p>
-                            <a href="pdfs/Meeting_Notes_Premium.pdf" target="_blank" class="read-more">View Preview <i class="fa-solid fa-arrow-right-long"></i></a>
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="template-card fade-in-scroll">
+                        <div class="template-img-wrap">
+                            <img src="assets/recipe_preview.png" alt="Ricettario" class="template-img">
                         </div>
-                    </article>
-
-                    <!-- Template 5 -->
-                    <article class="product-card fade-in-scroll">
-                        <figure class="product-image-wrapper">
-                            <img src="assets/Spartiti_Premium_mockup.png" alt="Spartiti Musicali Mockup" class="product-image">
-                        </figure>
-                        <div class="product-info">
-                            <span class="product-category">Creative</span>
-                            <h3 class="product-title">Spartiti Musicali</h3>
-                            <p class="product-desc">Pristine, high-contrast music sheets designed for composers and musicians.</p>
-                            <a href="pdfs/Spartiti_Premium.pdf" target="_blank" class="read-more">View Preview <i class="fa-solid fa-arrow-right-long"></i></a>
+                        <div class="template-body">
+                            <span class="template-tag">Lifestyle</span>
+                            <h3 class="template-title">Il Ricettario</h3>
+                            <p class="template-desc">An elegant 50-page recipe journal, perfectly hyperlinked for organizing your culinary creations.</p>
+                            <a href="pdfs/Ricettario_Premium.pdf" target="_blank" class="template-link">View Preview <i class="fa-solid fa-arrow-right"></i></a>
                         </div>
-                    </article>
-
-                    <!-- Template 6 -->
-                    <article class="product-card fade-in-scroll">
-                        <figure class="product-image-wrapper">
-                            <img src="assets/Notes_Ruled_mockup.png" alt="Notes Mockup" class="product-image">
-                        </figure>
-                        <div class="product-info">
-                            <span class="product-category">Essentials</span>
-                            <h3 class="product-title">Notebooks Suite</h3>
-                            <p class="product-desc">A collection of versatile free-form, lined, dotted, and grid templates for every thought.</p>
-                            <a href="pdfs/Notes_Ruled.pdf" target="_blank" class="read-more">View Preview <i class="fa-solid fa-arrow-right-long"></i></a>
+                    </div>
+                    <!-- Card 3 -->
+                    <div class="template-card fade-in-scroll">
+                        <div class="template-img-wrap">
+                            <img src="assets/calendar_preview.png" alt="Calendar" class="template-img">
                         </div>
-                    </article>
+                        <div class="template-body">
+                            <span class="template-tag">Planning</span>
+                            <h3 class="template-title">The 2026/2027 Calendar</h3>
+                            <p class="template-desc">Fully interactive, hyperlinked calendar system. Seamless navigation between months and days.</p>
+                            <a href="pdfs/Calendario_2026_2027_Premium.pdf" target="_blank" class="template-link">View Preview <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <!-- Card 4 -->
+                    <div class="template-card fade-in-scroll">
+                        <div class="template-img-wrap">
+                            <img src="assets/meeting_preview.png" alt="Meeting Notes" class="template-img">
+                        </div>
+                        <div class="template-body">
+                            <span class="template-tag">Professional</span>
+                            <h3 class="template-title">Meeting Notes</h3>
+                            <p class="template-desc">Structured layouts to capture key takeaways, attendees, and action items during your meetings.</p>
+                            <a href="pdfs/Meeting_Notes_Premium.pdf" target="_blank" class="template-link">View Preview <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <!-- Card 5 -->
+                    <div class="template-card fade-in-scroll">
+                        <div class="template-img-wrap">
+                            <img src="assets/spartiti_preview.png" alt="Spartiti Musicali" class="template-img">
+                        </div>
+                        <div class="template-body">
+                            <span class="template-tag">Creative</span>
+                            <h3 class="template-title">Spartiti Musicali</h3>
+                            <p class="template-desc">Pristine, high-contrast music sheets designed for composers and musicians on the go.</p>
+                            <a href="pdfs/Spartiti_Premium.pdf" target="_blank" class="template-link">View Preview <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <!-- Card 6 -->
+                    <div class="template-card fade-in-scroll">
+                        <div class="template-img-wrap">
+                            <img src="assets/notes_preview.png" alt="Notes" class="template-img">
+                        </div>
+                        <div class="template-body">
+                            <span class="template-tag">Essentials</span>
+                            <h3 class="template-title">Notebooks Suite</h3>
+                            <p class="template-desc">Versatile free-form, lined, dotted, and grid templates — a blank canvas for every thought.</p>
+                            <a href="pdfs/Notes_Ruled.pdf" target="_blank" class="template-link">View Preview <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
 
-                    <!-- Collection Bundle CTA -->
-                    <div class="collection-bundle-card fade-in-scroll">
+                    <!-- Bundle Card -->
+                    <div class="bundle-card fade-in-scroll">
                         <div class="bundle-info">
-                            <span class="bundle-badge">Premium Bundle</span>
+                            <span class="bundle-pill">✦ Complete Collection</span>
                             <h3 class="bundle-title">The Digital Stationery Collection</h3>
-                            <p class="bundle-desc">Get instant access to all 6 premium interactive templates. Designed with digital craftsmanship for your reMarkable tablet.</p>
+                            <p class="bundle-desc">Get instant access to all 6 premium interactive templates. Designed with obsessive care for your reMarkable tablet.</p>
                         </div>
-                        <div class="bundle-cta">
+                        <div class="bundle-right">
                             <span class="bundle-price">€9.99</span>
-                            <a href="https://hamsterlab.lemonsqueezy.com/checkout/buy/e487f15a-92a3-4b59-b4e9-636bfa8d25aa?embed=1" class="btn btn-solid lemonsqueezy-button">Get the Collection</a>
+                            <a href="https://hamsterlab.lemonsqueezy.com/checkout/buy/e487f15a-92a3-4b59-b4e9-636bfa8d25aa?embed=1" class="bundle-btn lemonsqueezy-button">Get the Collection →</a>
                         </div>
                     </div>
                 </div>
@@ -154,60 +149,71 @@
         </section>
 
         <!-- Software Section -->
-        <section id="software" class="section section-dark">
+        <section id="software" class="section software-section">
             <div class="container">
-                <div class="section-header dark-header fade-in-scroll">
-                    <h2 class="serif-title">Software Applications</h2>
-                    <p class="section-desc">Bespoke desktop utilities built for uncompromising workflows.</p>
+                <div class="section-head fade-in-scroll">
+                    <span class="section-label">Desktop Software</span>
+                    <h2 class="section-title">Built for serious workflows.</h2>
+                    <p class="section-desc">Bespoke desktop utilities engineered for speed, precision, and a minimal footprint.</p>
                 </div>
-                
-                <div class="software-layout">
+
+                <div class="software-cards">
                     <!-- LiveMark -->
-                    <article class="software-card fade-in-scroll">
-                        <div class="software-content">
-                            <span class="software-category">Windows Desktop</span>
-                            <h3 class="serif-title">LiveMark</h3>
-                            <p class="software-desc">An innovative application designed to streamline live marking and presentations. Manage resources elegantly, powered by an optimized SQLite architecture.</p>
-                            <a href="https://hamsterlab.lemonsqueezy.com/checkout/buy/2cb4c4ad-7119-4c39-91f5-c3adbd19b8ee?embed=1" class="btn btn-outline-light lemonsqueezy-button">Get LiveMark</a>
+                    <div class="software-card fade-in-scroll">
+                        <div class="software-body">
+                            <span class="sw-tag"><i class="fa-brands fa-windows"></i> Windows Desktop</span>
+                            <h3 class="sw-title">LiveMark</h3>
+                            <p class="sw-desc">An innovative application designed to streamline your live marking and presentation process. Powered by an optimized SQLite architecture.</p>
+                            <ul class="sw-features">
+                                <li>Built with Python</li>
+                                <li>SQLite Database integration</li>
+                                <li>Optimized, minimal UX</li>
+                            </ul>
+                            <a href="https://hamsterlab.lemonsqueezy.com/checkout/buy/2cb4c4ad-7119-4c39-91f5-c3adbd19b8ee?embed=1" class="btn btn-primary lemonsqueezy-button">Get LiveMark</a>
                         </div>
-                        <figure class="software-image">
-                            <img src="assets/LiveMark_Logo.jpg" alt="LiveMark Logo">
-                        </figure>
-                    </article>
+                        <div class="software-visual">
+                            <img src="assets/LiveMark_Logo.jpg" alt="LiveMark">
+                        </div>
+                    </div>
 
                     <!-- FocusDeck -->
-                    <article class="software-card reverse fade-in-scroll">
-                        <div class="software-content">
-                            <span class="software-category">Windows Desktop</span>
-                            <h3 class="serif-title">FocusDeck</h3>
-                            <p class="software-desc">A precision-engineered micro-utility for photographers. Effortlessly batch rename, process RAW files, and optimize images for the web through a minimal, focused GUI.</p>
-                            <a href="https://hamsterlab.lemonsqueezy.com/checkout/buy/0ecb8461-7e71-4964-9a85-f906bce38666?embed=1" class="btn btn-outline-light lemonsqueezy-button">Get FocusDeck</a>
+                    <div class="software-card reverse fade-in-scroll">
+                        <div class="software-body">
+                            <span class="sw-tag"><i class="fa-solid fa-camera"></i> For Photographers</span>
+                            <h3 class="sw-title">FocusDeck</h3>
+                            <p class="sw-desc">A precision-engineered micro-utility for photographers. Batch rename, process RAW files, and optimize images for the web — all in one minimal GUI.</p>
+                            <ul class="sw-features">
+                                <li>Smart Mass Renaming</li>
+                                <li>WebP & JPEG Optimization</li>
+                                <li>Professional RAW Support</li>
+                            </ul>
+                            <a href="https://hamsterlab.lemonsqueezy.com/checkout/buy/0ecb8461-7e71-4964-9a85-f906bce38666?embed=1" class="btn btn-pink lemonsqueezy-button">Get FocusDeck</a>
                         </div>
-                        <figure class="software-image">
-                            <img src="assets/FocusDeck_Logo.png" alt="FocusDeck Logo" class="contain-img">
-                        </figure>
-                    </article>
+                        <div class="software-visual">
+                            <img src="assets/FocusDeck_Logo.png" alt="FocusDeck">
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="editorial-footer">
-        <div class="container footer-grid">
-            <div class="footer-brand">
-                <img src="assets/logo.png" alt="Hamsterlab Logo" class="hamster-logo-footer">
-                <p class="footer-tagline">Crafting digital excellence.</p>
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-logo">
+                    <img src="assets/logo.png" alt="Hamsterlab">
+                    <p class="footer-tagline">Crafting tools that just work.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="https://github.com/warhamster8" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
+                    <a href="mailto:hamsterlab_dev@protonmail.com"><i class="fa-regular fa-envelope"></i> Contact</a>
+                </div>
             </div>
-            <div class="footer-links">
-                <h4>Connect</h4>
-                <ul>
-                    <li><a href="https://github.com/warhamster8" target="_blank">GitHub</a></li>
-                    <li><a href="mailto:hamsterlab_dev@protonmail.com">Contact</a></li>
-                </ul>
+            <div class="footer-bottom">
+                &copy; <span id="year"></span> Hamsterlab. All rights reserved.
             </div>
-        </div>
-        <div class="container footer-bottom">
-            <p>&copy; <span id="year"></span> Hamsterlab. All rights reserved.</p>
         </div>
     </footer>
 
