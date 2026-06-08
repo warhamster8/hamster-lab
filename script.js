@@ -20,7 +20,4 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { threshold: 0.12 });
 
     document.querySelectorAll('.fade-in-scroll').forEach(el => observer.observe(el));
-
-    // Lemon Squeezy overlay
-    if (window.createLemonSqueezy) window.createLemonSqueezy();
 });

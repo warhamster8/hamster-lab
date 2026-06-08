@@ -611,6 +611,107 @@ nav a:hover { color: var(--accent); }
     transform: scale(1.04) translateY(-4px);
 }
 
+/* ─── SUPPORT SECTION ─── */
+.support-section {
+    background: var(--bg-white);
+}
+
+.support-card {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, var(--accent) 0%, #8B5CF6 55%, var(--accent-2) 130%);
+    border-radius: var(--radius-lg);
+    padding: 4.5rem 3rem;
+    text-align: center;
+    color: white;
+    box-shadow: var(--shadow-accent);
+}
+
+.support-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(255,255,255,0.12) 0%, transparent 60%);
+    pointer-events: none;
+}
+
+.support-card > * { position: relative; z-index: 1; }
+
+.support-card .section-label { color: rgba(255,255,255,0.85); }
+.support-card .section-label::before { background: rgba(255,255,255,0.85); }
+
+.support-emoji {
+    display: block;
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    line-height: 1;
+}
+
+.support-title {
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.15;
+    max-width: 640px;
+    margin: 0.5rem auto 1.2rem;
+}
+
+.support-desc {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    opacity: 0.9;
+    max-width: 600px;
+    margin: 0 auto 2.5rem;
+}
+
+.support-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.support-card .btn-primary {
+    background: white;
+    color: var(--accent);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.18);
+}
+
+.support-card .btn-primary:hover {
+    background: white;
+    box-shadow: 0 12px 35px rgba(0,0,0,0.25);
+}
+
+.support-card .btn-secondary {
+    background: rgba(255,255,255,0.12);
+    color: white;
+    border: 1px solid rgba(255,255,255,0.4);
+    box-shadow: none;
+}
+
+.support-card .btn-secondary:hover {
+    background: rgba(255,255,255,0.2);
+    border-color: rgba(255,255,255,0.7);
+}
+
+.support-note {
+    font-size: 0.82rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    opacity: 0.75;
+    margin-top: 1.8rem;
+}
+
+@media (max-width: 520px) {
+    .support-card { padding: 3rem 1.5rem; }
+    .support-actions { flex-direction: column; }
+    .support-actions .btn { width: 100%; }
+}
+
 /* ─── FOOTER ─── */
 .site-footer {
     background: var(--text-primary);
