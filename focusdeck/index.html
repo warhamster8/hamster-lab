@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FocusDeck // Batch Rename & Web-Optimizer</title>
-    <meta name="description" content="FocusDeck is a high-performance batch image renaming and web optimization tool for photographers and creators. Convert RAW and standard formats to WebP and JPEG.">
+    <title>FocusDeck // Batch Convert. Zero Cloud.</title>
+    <meta name="description" content="FocusDeck is a high-performance batch image converter and web optimization tool for photographers and creators. Convert RAW and standard formats to WebP and JPEG — fully offline.">
+    <link rel="icon" type="image/png" href="assets/logo.png">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -254,6 +255,14 @@
             font-size: 0.95rem;
         }
 
+        .feature-card code {
+            background: rgba(0, 240, 255, 0.1);
+            color: var(--color-cyan);
+            padding: 0.1rem 0.4rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+        }
+
         /* Content Containers */
         .content-container {
             background-color: var(--bg-panel);
@@ -357,38 +366,38 @@
     <section id="home" class="active">
         <div class="hero">
             <div class="hero-info">
-                <h1>Batch Rename & <span>Web-Optimizer</span></h1>
-                <p>FocusDeck allows creators and photographers to batch rename, resize, and compress raw and standard photos into modern web-friendly formats in one seamless operation. Keep your folders organized and speed up your web presence.</p>
+                <h1>Batch Convert. <span>Zero Cloud.</span></h1>
+                <p>A precision micro-utility for photographers who need to rename, resize, and convert RAW &amp; standard images into fully optimized WebP or JPEG — in one seamless operation. Everything runs locally on your machine. No uploads, no sign-ups, no limits.</p>
                 <div class="btn-group">
                     <a href="https://hamsterlab.gumroad.com/l/focusdeck" target="_blank" class="btn btn-primary">Get FocusDeck — Free</a>
                     <a onclick="showSection('support')" class="btn btn-secondary">Support</a>
                 </div>
             </div>
             <div class="hero-visual">
-                <img src="assets/hero.png" alt="FocusDeck UI Screenshot Mockup">
+                <img src="assets/hero.png" alt="FocusDeck App Mockup">
             </div>
         </div>
 
         <div style="margin-top: 6rem; text-align: center;">
-            <h2 style="font-family: var(--font-title); font-size: 2.2rem; margin-bottom: 0.5rem;">Powerful Features</h2>
-            <p style="color: var(--text-muted); margin-bottom: 2rem;">Designed for professional creators demanding speed and efficiency.</p>
+            <h2 style="font-family: var(--font-title); font-size: 2.2rem; margin-bottom: 0.5rem;">Designed for Photographers</h2>
+            <p style="color: var(--text-muted); margin-bottom: 2rem;">Drag-and-drop batch processing with an obsessive attention to detail.</p>
         </div>
 
         <div class="features-grid">
             <div class="feature-card">
-                <div class="feature-icon">📁</div>
-                <h3>Batch Rename</h3>
-                <p>Rename hundreds of files instantly with customizable project numbering systems and clean folder outputs.</p>
-            </div>
-            <div class="feature-card">
                 <div class="feature-icon">⚡</div>
-                <h3>Web Optimization</h3>
-                <p>Convert large RAW files and heavy images to optimized WebP or high-quality JPEG configurations.</p>
+                <h3>Batch Conversion</h3>
+                <p>Drop entire folders of RAW files (RAF, CR2, NEF, ARW, DNG, ORF, RW2, PEF, 3FR) and standard images — convert to WebP or JPEG with a single click.</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon">📐</div>
-                <h3>Instant Resizing</h3>
-                <p>Batch resize images to popular long-edge dimensions (e.g. 1920px for web, 2560px for HD screens, 1080px for social).</p>
+                <h3>Smart Resizing</h3>
+                <p>Resize to popular long-edge presets (2048px for social, 1200px for web, original for archive) with LANCZOS scaling and preserved EXIF data.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📁</div>
+                <h3>Auto Rename + Organize</h3>
+                <p>Extract EXIF capture date and rename each file using a clean <code>YYYYMMDD_ProjectName_001</code> pattern. Outputs land in a tidy <code>FocusDeck_Output/</code> folder.</p>
             </div>
         </div>
     </section>
@@ -397,7 +406,7 @@
     <section id="privacy">
         <div class="content-container">
             <h2>Privacy Policy</h2>
-            <p><strong>Last updated: May 25, 2026</strong></p>
+            <p><strong>Last updated: June 9, 2026</strong></p>
             
             <p>This Privacy Policy describes how <strong>FocusDeck</strong> processes and handles your data. We respect your privacy and are committed to protecting it.</p>
             
@@ -430,8 +439,10 @@
             </ul>
             
             <h3>Frequently Asked Questions:</h3>
-            <p><strong>Q: What file formats are supported?</strong><br>A: FocusDeck supports RAW formats (RAF, CR2, NEF, DNG, ARW, ORF, RW2, etc.) and standard formats (JPEG, PNG).</p>
-            <p><strong>Q: Can I use it offline?</strong><br>A: Yes! FocusDeck runs entirely locally on your machine and does not require an active internet connection to process photos.</p>
+            <p><strong>Q: What file formats are supported?</strong><br>A: FocusDeck supports all major RAW formats (RAF, CR2, NEF, DNG, ARW, ORF, RW2, PEF, 3FR) and standard formats (JPEG, PNG).</p>
+            <p><strong>Q: Does it run fully offline?</strong><br>A: Yes. FocusDeck runs entirely on your local machine — no internet connection required. No data ever leaves your computer.</p>
+            <p><strong>Q: Which output formats are available?</strong><br>A: You can export to optimized WebP (best compression for web) or high-quality JPEG with configurable quality and resizing presets.</p>
+            <p><strong>Q: Is FocusDeck really free?</strong><br>A: Yes — the application is completely free to download and use. If it helps your workflow, you can support the project with a voluntary contribution via Gumroad. No purchase required, no paywall.</p>
         </div>
     </section>
 
