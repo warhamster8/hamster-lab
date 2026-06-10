@@ -4,63 +4,77 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FocusDeck // Batch Convert. Zero Cloud.</title>
-    <meta name="description" content="FocusDeck is a high-performance batch image converter and web optimization tool for photographers and creators. Convert RAW and standard formats to WebP and JPEG — fully offline.">
+    <meta name="description" content="FocusDeck is a high-performance batch image converter for photographers. Convert RAW and standard formats to WebP and JPEG — fully offline, drag & drop, EXIF-safe.">
+    <meta property="og:title" content="FocusDeck — Batch Convert. Zero Cloud.">
+    <meta property="og:description" content="Rename, resize and convert RAW & JPEG batches locally. No cloud, no sign-up.">
+    <meta property="og:image" content="assets/github-cover.png">
     <link rel="icon" type="image/png" href="assets/logo.png">
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-base: #0b0f19;
-            --bg-panel: #121826;
-            --bg-inner: #1a2336;
-            --color-accent: #8a2be2;
-            --color-accent-hover: #9d4edd;
-            --color-cyan: #00f0ff;
-            --color-success: #00e676;
-            --color-error: #ff1744;
-            --text-primary: #ffffff;
-            --text-muted: #8fa0c4;
-            --border-muted: #24314c;
-            --font-main: 'Space Grotesk', sans-serif;
-            --font-title: 'Outfit', sans-serif;
+            --bg-base: #080808;
+            --bg-panel: #111010;
+            --bg-card: #181614;
+            --bg-inner: #141210;
+            --color-accent: #E8A849;
+            --color-accent-hover: #F0BC6A;
+            --color-success: #7EC89B;
+            --color-error: #C45C5C;
+            --text-primary: #F5F0E8;
+            --text-secondary: #A89F92;
+            --text-muted: #6B6358;
+            --border-muted: #2a2520;
+            --font-main: 'DM Sans', 'Segoe UI', sans-serif;
+            --font-mono: 'JetBrains Mono', 'Consolas', monospace;
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
             font-family: var(--font-main);
             background-color: var(--bg-base);
             color: var(--text-primary);
-            line-height: 1.6;
+            line-height: 1.65;
             overflow-x: hidden;
         }
 
-        /* Header / Navbar */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 60% 40% at 85% 15%, rgba(232, 168, 73, 0.06), transparent),
+                radial-gradient(ellipse 40% 30% at 10% 80%, rgba(232, 168, 73, 0.03), transparent);
+            pointer-events: none;
+            z-index: 0;
+        }
+
         header {
             position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background: rgba(11, 15, 25, 0.8);
-            backdrop-filter: blur(12px);
+            top: 0; left: 0; right: 0;
+            background: rgba(8, 8, 8, 0.88);
+            backdrop-filter: blur(14px);
             border-bottom: 1px solid var(--border-muted);
             z-index: 1000;
-            transition: all 0.3s ease;
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 2px;
+            background: var(--color-accent);
         }
 
         .nav-container {
-            max-width: 1200px;
+            max-width: 1140px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1.2rem 2rem;
+            padding: 1rem 2rem;
         }
 
         .logo-area {
@@ -73,47 +87,38 @@
         }
 
         .logo-img {
-            width: 36px;
-            height: 36px;
+            width: 34px;
+            height: 34px;
             border-radius: 8px;
             object-fit: contain;
-            box-shadow: 0 0 15px rgba(138, 43, 226, 0.4);
         }
 
         .logo-text {
-            font-family: var(--font-title);
-            font-size: 1.5rem;
-            font-weight: 800;
-            letter-spacing: -0.5px;
+            font-size: 1.35rem;
+            font-weight: 700;
+            letter-spacing: -0.3px;
         }
 
-        .logo-text span {
-            background: linear-gradient(to right, var(--text-primary), var(--color-cyan));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+        .logo-text span { color: var(--color-accent); }
 
-        nav {
-            display: flex;
-            gap: 2rem;
-        }
+        nav { display: flex; gap: 1.75rem; align-items: center; }
 
         nav a {
             color: var(--text-muted);
             text-decoration: none;
             font-weight: 500;
+            font-size: 0.95rem;
             transition: color 0.2s ease;
             cursor: pointer;
         }
 
-        nav a:hover, nav a.active {
-            color: var(--color-cyan);
-        }
+        nav a:hover, nav a.active { color: var(--color-accent); }
 
-        /* Sections base */
         section {
-            padding: 8rem 2rem 5rem;
-            max-width: 1200px;
+            position: relative;
+            z-index: 1;
+            padding: 7rem 2rem 4rem;
+            max-width: 1140px;
             margin: 0 auto;
             min-height: 80vh;
             display: none;
@@ -121,58 +126,61 @@
 
         section.active {
             display: block;
-            animation: fadeIn 0.5s ease-in-out forwards;
+            animation: fadeIn 0.45s ease forwards;
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(15px); }
+            from { opacity: 0; transform: translateY(12px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Hero / Home Section */
         .hero {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr 1.05fr;
             align-items: center;
-            gap: 4rem;
-            padding-top: 10rem;
+            gap: 3.5rem;
+            padding-top: 5rem;
         }
 
         .hero-info h1 {
-            font-family: var(--font-title);
-            font-size: 3.5rem;
-            font-weight: 800;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
+            font-size: clamp(2.4rem, 4vw, 3.4rem);
+            font-weight: 700;
+            line-height: 1.08;
+            margin-bottom: 1.25rem;
             letter-spacing: -1px;
         }
 
-        .hero-info h1 span {
-            background: linear-gradient(135deg, var(--color-cyan), var(--color-accent));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 30px rgba(0, 240, 255, 0.2);
+        .hero-info h1 span { color: var(--color-accent); }
+
+        .hero-tagline {
+            display: inline-block;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--color-accent);
+            background: rgba(232, 168, 73, 0.1);
+            border: 1px solid rgba(232, 168, 73, 0.25);
+            border-radius: 6px;
+            padding: 0.35rem 0.75rem;
+            margin-bottom: 1.25rem;
+            letter-spacing: 0.02em;
         }
 
         .hero-info p {
-            color: var(--text-muted);
-            font-size: 1.2rem;
-            margin-bottom: 2.5rem;
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            max-width: 480px;
         }
 
-        .btn-group {
-            display: flex;
-            gap: 1.5rem;
-        }
+        .btn-group { display: flex; gap: 1rem; flex-wrap: wrap; }
 
         .btn {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: 0.8rem 2rem;
-            border-radius: 8px;
-            font-family: var(--font-title);
-            font-size: 1rem;
+            padding: 0.75rem 1.6rem;
+            border-radius: 10px;
+            font-size: 0.95rem;
             font-weight: 600;
             text-decoration: none;
             transition: all 0.2s ease;
@@ -180,15 +188,16 @@
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, var(--color-accent), var(--color-accent-hover));
-            color: white;
-            box-shadow: 0 4px 20px rgba(138, 43, 226, 0.3);
+            background: var(--color-accent);
+            color: #1a1208;
             border: none;
+            box-shadow: 0 4px 20px rgba(232, 168, 73, 0.25);
         }
 
         .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 25px rgba(138, 43, 226, 0.5);
+            background: var(--color-accent-hover);
+            transform: translateY(-1px);
+            box-shadow: 0 6px 28px rgba(232, 168, 73, 0.35);
         }
 
         .btn-secondary {
@@ -198,150 +207,162 @@
         }
 
         .btn-secondary:hover {
-            border-color: var(--color-cyan);
-            color: var(--color-cyan);
-        }
-
-        .hero-visual {
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            border-color: var(--color-accent);
+            color: var(--color-accent);
         }
 
         .hero-visual img {
-            max-width: 100%;
-            border-radius: 16px;
-            border: 2px solid var(--border-muted);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 40px rgba(0, 240, 255, 0.1);
+            width: 100%;
+            border-radius: 14px;
+            border: 1px solid var(--border-muted);
+            box-shadow: 0 24px 48px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(232, 168, 73, 0.06);
         }
 
-        /* Features Grid */
+        .section-intro {
+            margin-top: 5rem;
+            text-align: center;
+        }
+
+        .section-intro h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.5px;
+        }
+
+        .section-intro p { color: var(--text-muted); }
+
         .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
+            gap: 1.5rem;
+            margin-top: 2.5rem;
         }
 
         .feature-card {
-            background-color: var(--bg-panel);
+            background: var(--bg-panel);
             border: 1px solid var(--border-muted);
-            border-radius: 12px;
-            padding: 2.5rem;
-            transition: all 0.3s ease;
+            border-radius: 14px;
+            padding: 2rem;
+            transition: border-color 0.25s ease, transform 0.25s ease;
         }
 
         .feature-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--color-cyan);
-            box-shadow: 0 10px 30px rgba(0, 240, 255, 0.05);
+            transform: translateY(-3px);
+            border-color: rgba(232, 168, 73, 0.45);
         }
 
         .feature-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            color: var(--color-cyan);
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: rgba(232, 168, 73, 0.12);
+            border: 1px solid rgba(232, 168, 73, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            margin-bottom: 1.25rem;
+            color: var(--color-accent);
         }
 
         .feature-card h3 {
-            font-family: var(--font-title);
-            font-size: 1.4rem;
-            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
         }
 
         .feature-card p {
-            color: var(--text-muted);
+            color: var(--text-secondary);
             font-size: 0.95rem;
         }
 
         .feature-card code {
-            background: rgba(0, 240, 255, 0.1);
-            color: var(--color-cyan);
+            font-family: var(--font-mono);
+            background: rgba(232, 168, 73, 0.1);
+            color: var(--color-accent);
             padding: 0.1rem 0.4rem;
             border-radius: 4px;
-            font-size: 0.85rem;
+            font-size: 0.82rem;
         }
 
-        /* Content Containers */
         .content-container {
-            background-color: var(--bg-panel);
+            background: var(--bg-panel);
             border: 1px solid var(--border-muted);
-            border-radius: 12px;
-            padding: 3.5rem;
-            max-width: 900px;
+            border-radius: 14px;
+            padding: 3rem;
+            max-width: 820px;
             margin: 0 auto;
         }
 
         .content-container h2 {
-            font-family: var(--font-title);
-            font-size: 2.2rem;
-            margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, #fff, var(--color-cyan));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1.25rem;
+            color: var(--text-primary);
         }
 
         .content-container h3 {
-            font-family: var(--font-title);
-            font-size: 1.3rem;
+            font-size: 1.15rem;
+            font-weight: 600;
             margin-top: 2rem;
-            margin-bottom: 0.8rem;
-            color: var(--color-cyan);
+            margin-bottom: 0.6rem;
+            color: var(--color-accent);
         }
 
-        .content-container p, .content-container ul {
-            color: var(--text-muted);
-            margin-bottom: 1.2rem;
-            font-size: 1.05rem;
-        }
-
+        .content-container p,
         .content-container ul {
-            padding-left: 1.5rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            font-size: 1rem;
         }
 
-        .content-container li {
-            margin-bottom: 0.5rem;
+        .content-container ul { padding-left: 1.4rem; }
+        .content-container li { margin-bottom: 0.4rem; }
+
+        .content-container a {
+            color: var(--color-accent);
+            text-decoration: none;
         }
 
-        /* Footer */
+        .content-container a:hover { text-decoration: underline; }
+
         footer {
+            position: relative;
+            z-index: 1;
             border-top: 1px solid var(--border-muted);
-            background-color: var(--bg-base);
-            padding: 3rem 2rem;
-            margin-top: 6rem;
+            background: var(--bg-base);
+            padding: 2.5rem 2rem;
+            margin-top: 4rem;
         }
 
         .footer-content {
-            max-width: 1200px;
+            max-width: 1140px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
-            gap: 1.5rem;
+            gap: 1rem;
         }
 
-        .footer-text {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-        }
+        .footer-text { color: var(--text-muted); font-size: 0.88rem; }
 
-        .footer-links {
-            display: flex;
-            gap: 2rem;
-        }
+        .footer-links { display: flex; gap: 1.5rem; }
 
         .footer-links a {
             color: var(--text-muted);
             text-decoration: none;
-            font-size: 0.9rem;
-            transition: color 0.2s ease;
+            font-size: 0.88rem;
             cursor: pointer;
         }
 
-        .footer-links a:hover {
-            color: var(--color-cyan);
+        .footer-links a:hover { color: var(--color-accent); }
+
+        @media (max-width: 900px) {
+            .hero { grid-template-columns: 1fr; padding-top: 2rem; }
+            .hero-visual { order: -1; }
+            nav { gap: 1rem; font-size: 0.9rem; }
         }
     </style>
 </head>
@@ -355,105 +376,91 @@
             </a>
             <nav>
                 <a id="nav-home" onclick="showSection('home')" class="active">Home</a>
-                <a id="nav-privacy" onclick="showSection('privacy')">Privacy Policy</a>
-                <a id="nav-support" onclick="showSection('support')">Support & Supporto</a>
-                <a href="../" style="color: var(--text-muted); border-left: 1px solid var(--border-muted); padding-left: 15px;">← Hamster Lab</a>
+                <a id="nav-privacy" onclick="showSection('privacy')">Privacy</a>
+                <a id="nav-support" onclick="showSection('support')">Support</a>
+                <a href="../" style="border-left: 1px solid var(--border-muted); padding-left: 14px;">← Hamster Lab</a>
             </nav>
         </div>
     </header>
 
-    <!-- HOME SECTION -->
     <section id="home" class="active">
         <div class="hero">
             <div class="hero-info">
-                <h1>Batch Convert. <span>Zero Cloud.</span></h1>
-                <p>A precision micro-utility for photographers who need to rename, resize, and convert RAW &amp; standard images into fully optimized WebP or JPEG — in one seamless operation. Everything runs locally on your machine. No uploads, no sign-ups, no limits.</p>
+                <span class="hero-tagline">Optical Darkroom · v2.1</span>
+                <h1>Batch Convert.<br><span>Zero Cloud.</span></h1>
+                <p>Rename, resize and convert entire folders of RAW and standard images to optimized WebP or JPEG — in one local operation. Drag & drop, EXIF preserved, no uploads.</p>
                 <div class="btn-group">
                     <a href="https://hamsterlab.gumroad.com/l/focusdeck" target="_blank" class="btn btn-primary">Get FocusDeck — Free</a>
-                    <a onclick="showSection('support')" class="btn btn-secondary">Support</a>
+                    <a href="https://github.com/warhamster8/focus_deck" target="_blank" class="btn btn-secondary">Source on GitHub</a>
                 </div>
             </div>
             <div class="hero-visual">
-                <img src="assets/hero.png" alt="FocusDeck App Mockup">
+                <img src="assets/hero.png" alt="FocusDeck interface — drag & drop, presets, batch conversion">
             </div>
         </div>
 
-        <div style="margin-top: 6rem; text-align: center;">
-            <h2 style="font-family: var(--font-title); font-size: 2.2rem; margin-bottom: 0.5rem;">Designed for Photographers</h2>
-            <p style="color: var(--text-muted); margin-bottom: 2rem;">Drag-and-drop batch processing with an obsessive attention to detail.</p>
+        <div class="section-intro">
+            <h2>Built for photographers</h2>
+            <p>Offline batch processing with the warmth of a darkroom and the precision of a modern tool.</p>
         </div>
 
         <div class="features-grid">
             <div class="feature-card">
                 <div class="feature-icon">⚡</div>
                 <h3>Batch Conversion</h3>
-                <p>Drop entire folders of RAW files (RAF, CR2, NEF, ARW, DNG, ORF, RW2, PEF, 3FR) and standard images — convert to WebP or JPEG with a single click.</p>
+                <p>Drop folders of RAW files (RAF, CR2, NEF, ARW, DNG, ORF, RW2, PEF, 3FR) and standard images — convert to WebP or JPEG with one click.</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon">📐</div>
-                <h3>Smart Resizing</h3>
-                <p>Resize to popular long-edge presets (2048px for social, 1200px for web, original for archive) with LANCZOS scaling and preserved EXIF data.</p>
+                <h3>Smart Presets</h3>
+                <p>Instagram (2048px), Facebook (1200px) and Archive HR presets with LANCZOS scaling and preserved EXIF metadata.</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon">📁</div>
-                <h3>Auto Rename + Organize</h3>
-                <p>Extract EXIF capture date and rename each file using a clean <code>YYYYMMDD_ProjectName_001</code> pattern. Outputs land in a tidy <code>FocusDeck_Output/</code> folder.</p>
+                <h3>Auto Rename</h3>
+                <p>Extract capture date from EXIF and rename with a clean <code>YYYYMMDD_ProjectName_001</code> pattern into <code>FocusDeck_Output/</code>.</p>
             </div>
         </div>
     </section>
 
-    <!-- PRIVACY POLICY SECTION -->
     <section id="privacy">
         <div class="content-container">
             <h2>Privacy Policy</h2>
             <p><strong>Last updated: June 9, 2026</strong></p>
-            
-            <p>This Privacy Policy describes how <strong>FocusDeck</strong> processes and handles your data. We respect your privacy and are committed to protecting it.</p>
-            
-            <h3>1. Personal Data & Information Collection</h3>
-            <p>FocusDeck is a fully local application. We <strong>do not collect, store, transmit, or share</strong> any personal information, usage metrics, diagnostic telemetry, or analytics data. All your actions, including folder choices, files processed, and optimization settings, remain strictly on your local computer.</p>
-            
+            <p>FocusDeck is a fully local application. We <strong>do not collect, store, transmit, or share</strong> any personal information, usage metrics, diagnostic telemetry, or analytics data.</p>
+            <h3>1. Personal Data</h3>
+            <p>All folder choices, files processed, and settings remain strictly on your local computer.</p>
             <h3>2. File Processing</h3>
-            <p>All image loading, renaming, conversions, and resizing calculations are performed entirely <strong>on your local machine</strong>. FocusDeck does not upload your files to any external servers or third-party web services.</p>
-            
+            <p>Image loading, renaming, conversions and resizing run entirely <strong>on your machine</strong>. No files are uploaded to external servers.</p>
             <h3>3. Third-Party Services</h3>
-            <p>FocusDeck does not integrate with any third-party advertising networks, tracking libraries, or analytics platforms.</p>
-            
-            <h3>4. Updates & Changes</h3>
-            <p>We may update our Privacy Policy from time to time. Any changes will be posted on this page with an updated modification date.</p>
-            
-            <h3>5. Contact Us</h3>
-            <p>If you have any questions or suggestions about our Privacy Policy, do not hesitate to contact us at the support page provided on this website.</p>
+            <p>FocusDeck does not integrate with advertising networks, tracking libraries, or analytics platforms.</p>
+            <h3>4. Contact</h3>
+            <p>Questions? Reach us via the <a onclick="showSection('support')">Support page</a> or <a href="https://github.com/warhamster8/focus_deck/issues" target="_blank">GitHub Issues</a>.</p>
         </div>
     </section>
 
-    <!-- SUPPORT SECTION -->
     <section id="support">
         <div class="content-container">
-            <h2>Support & Supporto Tecnico</h2>
-            <p>Need help or have questions about FocusDeck? We're here to help you get the most out of your batch image renaming and optimization.</p>
-            
-            <h3>How to get support:</h3>
+            <h2>Support & Supporto</h2>
+            <p>Need help with FocusDeck? We're here to help you get the most from your batch workflow.</p>
+            <h3>How to get support</h3>
             <ul>
-                <li><strong>Bug & Support:</strong> Open an issue directly on our <a href="https://github.com/warhamster8/focus_deck/issues" target="_blank" style="color: var(--color-cyan); text-decoration: none;">GitHub Issues Page</a>.</li>
+                <li><strong>Bug reports:</strong> <a href="https://github.com/warhamster8/focus_deck/issues" target="_blank">GitHub Issues</a></li>
+                <li><strong>Source code:</strong> <a href="https://github.com/warhamster8/focus_deck" target="_blank">github.com/warhamster8/focus_deck</a></li>
             </ul>
-            
-            <h3>Frequently Asked Questions:</h3>
-            <p><strong>Q: What file formats are supported?</strong><br>A: FocusDeck supports all major RAW formats (RAF, CR2, NEF, DNG, ARW, ORF, RW2, PEF, 3FR) and standard formats (JPEG, PNG).</p>
-            <p><strong>Q: Does it run fully offline?</strong><br>A: Yes. FocusDeck runs entirely on your local machine — no internet connection required. No data ever leaves your computer.</p>
-            <p><strong>Q: Which output formats are available?</strong><br>A: You can export to optimized WebP (best compression for web) or high-quality JPEG with configurable quality and resizing presets.</p>
-            <p><strong>Q: Is FocusDeck really free?</strong><br>A: Yes — the application is completely free to download and use. If it helps your workflow, you can support the project with a voluntary contribution via Gumroad. No purchase required, no paywall.</p>
+            <h3>FAQ</h3>
+            <p><strong>Q: Which formats are supported?</strong><br>A: RAW (RAF, CR2, NEF, DNG, ARW, ORF, RW2, PEF, 3FR) and JPEG/PNG.</p>
+            <p><strong>Q: Does it work offline?</strong><br>A: Yes — 100% local. No internet required.</p>
+            <p><strong>Q: Is it free?</strong><br>A: Yes. Download and use freely; voluntary support via Gumroad is optional.</p>
         </div>
     </section>
 
     <footer>
         <div class="footer-content">
-            <div class="footer-text">
-                &copy; 2026 FocusDeck. Built for premium speed. Part of Hamster Lab.
-            </div>
+            <div class="footer-text">&copy; 2026 FocusDeck · Part of Hamster Lab</div>
             <div class="footer-links">
                 <a onclick="showSection('home')">Home</a>
-                <a onclick="showSection('privacy')">Privacy Policy</a>
+                <a onclick="showSection('privacy')">Privacy</a>
                 <a onclick="showSection('support')">Support</a>
             </div>
         </div>
@@ -461,23 +468,11 @@
 
     <script>
         function showSection(sectionId) {
-            // Hide all sections
-            document.querySelectorAll('section').forEach(section => {
-                section.classList.remove('active');
-            });
-            // Show target section
+            document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
             document.getElementById(sectionId).classList.add('active');
-
-            // Update nav active state
-            document.querySelectorAll('nav a').forEach(link => {
-                link.classList.remove('active');
-            });
+            document.querySelectorAll('nav a').forEach(link => link.classList.remove('active'));
             const activeLink = document.getElementById('nav-' + sectionId);
-            if (activeLink) {
-                activeLink.classList.add('active');
-            }
-
-            // Scroll to top
+            if (activeLink) activeLink.classList.add('active');
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     </script>
